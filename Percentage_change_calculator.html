@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Percentage Change Calculator</title>
+</head>
+
+<body>
+   
+    <!-- home body -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-20 mx-auto ">
+            <h2 align="center" class="m-3">Percentage Change Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center text-xl">
+
+                <div class="p-3 md:w-3/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+                            <h1 class=" text-gray-600">Enter Initial value<input type="number" id="num3a"
+                                    class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                Enter Final value
+                                <input type="number" id="num3b"
+                                    class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                is ?
+                            </h1>
+                            <button onclick="percentage_3()"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button><br>
+                            Increase % <input type="text" id="value3a" readonly
+                                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            Difference <input type="text" id="value3b" readonly
+                                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+        // Percentage Change Calculator
+
+        function percentage_3() {
+            // Method returns the element of num1 id
+            var num1 = document.getElementById("num3a").value;
+            // Method returns the element of num2 id
+            var num2 = document.getElementById("num3b").value;
+            document.getElementById("value3a").value = ((num2 - num1) * 100) / num1 + " %";
+            document.getElementById("value3b").value = num2 - num1;
+        }
+    </script>
+</body>
+
+</html>
