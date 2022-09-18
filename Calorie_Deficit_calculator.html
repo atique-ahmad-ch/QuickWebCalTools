@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Calorie Deficit Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">Calorie Deficit Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-3/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+
+                             <label  class="leading-7 text-sm text-gray-600">Sex -Female </label>
+                             <input placeholder="Height (cm)" onchange="Calculator()" type="text" id="h" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Weight (kg)" onchange="Calculator()" type="text" id="w" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Age (year)" onchange="Calculator()"  type="text" id="a" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             
+                            <label  class="leading-7 text-sm text-gray-600">Activity level -Light exercise 1-2 times/week</label>
+                            <input placeholder="Target Weight (kg)" onchange="Calculator()" type="text" id="tw" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            
+                            <label  class="leading-7 text-sm text-gray-600">Weight loss pace - Relaxed: 0.25 kg (0.5 lb) / week</label>
+                            <input placeholder="Calorie deficit (kcal/day)" onchange="Calculator()" type="text" id="cal" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <label  class="leading-7 text-sm text-gray-600">Results</label>
+                            <input placeholder="Calories to maintain weight  (kcal/day) "  readonly type="text" id="mcal" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             
+                            <button onClick="window.location.reload();" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Re-set</button><br />
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function Calculator() {
+            
+            var h = document.getElementById("h").value;
+            var w = document.getElementById("w").value;
+            var a = document.getElementById("a").value;
+            var tw = document.getElementById("tw").value;
+            var cal = document.getElementById("cal").value;
+            //output perform here
+            document.getElementById("mcal").value = +" (kcal/day)";
+             }
+            
+    </script>
+</body>
+
+</html>
+
