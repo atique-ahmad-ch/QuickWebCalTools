@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Mole Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">Mole Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-2/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+
+                            <input placeholder="Mass                g" type="number" id="mass" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            <input placeholder="Molecular weight             g/mol" type="number" id="m_weight" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                              
+                            <button onclick="Mole()"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button><br />
+                            <input placeholder="Mole           mol" type="text" id="Mole" readonly class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+        // Percentage Calculator
+
+        function Mole() {
+            // Method returns the element of nums id
+            var mass = document.getElementById("mass").value;
+            var m_weight = document.getElementById("m_weight").value;
+
+            document.getElementById("Mole").value = mass/m_weight+"     mol";
+        }
+    </script>
+</body>
+
+</html>
