@@ -54,7 +54,7 @@
             var num1 = document.getElementById("num3a").value;
             // Method returns the element of num2 id
             var num2 = document.getElementById("num3b").value;
-            document.getElementById("value3a").value = ((num2 - num1) * 100) / num1 + " %";
+            document.getElementById("value3a").value = (((num2 - num1) * 100) / num1).toFixed(2) + " %";
             document.getElementById("value3b").value = num2 - num1;
         }
     </script>
