@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Hypotenuse Calculator</title>
+</head>
+
+<body>
+    
+    <!-- home body -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-20 mx-auto ">
+            <div class="flex flex-wrap -m-4  justify-center text-xl">
+
+                <div class="p-3 md:w-5/6">
+                    <h2 align="center">Hypotenuse Calculator</h2>
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-10 mx-auto ">
+                 
+                                 <label  class="leading-7 text-sm text-gray-600">Given - two sides ∟</label>
+                                <img alt="Hypotenuse" class="flex-shrink-0 rounded-lg m-4 w-25 h-20 object-cover object-center sm:mb-0 " src="./images/right-triangle-r2.svg">
+                                <input type="number"  id="a" placeholder="a            cm" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="number"  id="b" placeholder="b            cm" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                
+                               
+                                <button onclick="calculator()" type="button" class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button><br>
+                                <label  class="leading-7 text-sm text-gray-600">Hypotenuse</label>
+                                <input type="text" placeholder=" c                cm" id="c"  readonly class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function calculator() {
+            // Method returns the element id
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+
+            //c = √(a² + b²)
+            document.getElementById("c").value = Math.sqrt(a*a + b*b).toFixed(3)+ "   cm";
+        }
+    </script>
+</body>
+
+</html>
