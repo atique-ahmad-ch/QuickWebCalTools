@@ -1,0 +1,75 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Business Days Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">Business Days Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-3/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+                             <input placeholder="Start date " onchange="Calculator()" type="date" id="s_d" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="End date" onchange="Calculator()" type="date" id="e_d" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             
+                            <label  class="leading-7 text-sm text-gray-600">Business days Include all days of the week</label><br/>
+                            <label  class="leading-7 text-sm text-gray-600">-Not Include end date.</label><br/>
+                            <input placeholder="The total number of days is: "  readonly type="text" id="total" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             
+                            <button onClick="window.location.reload();" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Re-set</button><br />
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function Calculator() {
+            
+            const s_d = document.getElementById("s_d").value;
+            const e_d = document.getElementById("e_d").value;
+            const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+            // a and b are javascript Date objects
+            function dateDiffInDays(a, b) {
+              // Discard the time and time-zone information.
+              const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+              const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+            
+              return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+            }
+            
+            // test it
+            const a = new Date(s_d),
+                b = new Date(e_d),
+                difference = dateDiffInDays(a, b);
+            //output perform here
+            document.getElementById("total").value = "The total number of days is: "+difference;
+             }
+            
+    </script>
+</body>
+
+</html>
+
