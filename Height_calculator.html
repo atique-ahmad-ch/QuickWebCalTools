@@ -1,0 +1,81 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Height Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">Height Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-3/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+                             <!-- <label  class="leading-7 text-sm text-gray-600">Method 1: The Khamis-Roche Height Predictor</label>
+                             <input placeholder="Mother's height    cm" onchange="Calculator()" type="text" id="bh" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Father's height    cm"  readonly type="text" id="bw" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Child's sex      Girl" readonly  type="text" id="bm" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Child's age     4 years" readonly  type="text" id="ba" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Child's height    cm" readonly  type="text" id="ba" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Child's weight     kg" readonly  type="text" id="ba" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Child's future height     cm" readonly  type="text" id="ba" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" /> -->
+                             
+                            <label  class="leading-7 text-sm text-gray-600">Mid-Parental Height Calculator</label>
+                            <input placeholder="Mother's height       cm" onchange="Calculator()" type="text" id="mh" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Father's height       cm"  onchange="Calculator()" type="text" id="fh" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Girl's future height      cm" readonly type="text" id="gh" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Boy's future height       cm" readonly type="text" id="bh" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            
+                            <button onClick="window.location.reload();" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Re-set</button><br />
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function Calculator() {
+            
+            var mh = document.getElementById("mh").value;
+            var fh = document.getElementById("fh").value;
+            //output
+            if(mh!=='' & fh!=='')
+                {
+                    var midh = (parseFloat(mh)+parseFloat(fh))/2;
+                    var gh = midh-6.5;
+                    var bh = midh+6.5;
+                    document.getElementById("gh").value =  "Girl's future height: "+gh +"  cm";
+                    document.getElementById("bh").value = "Boy's future height: "+bh+"   cm";
+            
+                    if(mh<=0 | fh<=0 | gh<=0 | bh<=0)
+                    {
+                        alert("Height must be greater than zero.");
+                    }
+            }
+
+         }
+            
+    </script>
+</body>
+
+</html>
+
