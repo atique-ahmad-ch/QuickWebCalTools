@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1304.1 853.335" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<clipPath id="TextBounds">
+<rect height="189.945" transform="matrix(0.352734 -0 -0 0.352734 -209.933 -230.97)" width="103.902" x="595.16" y="654.801"/>
+</clipPath>
+<clipPath id="TextBounds_2">
+<rect height="230.457" transform="matrix(0.352734 -0 -0 0.352734 -374 -231)" width="74.5904" x="1060.29" y="654.885"/>
+</clipPath>
+<clipPath id="TextBounds_3">
+<rect height="230.457" transform="matrix(0.352734 -0 -0 0.352734 -203 -81)" width="140.87" x="575.505" y="229.635"/>
+</clipPath>
+<clipPath id="TextBounds_4">
+<rect height="230.457" transform="matrix(0.352734 -0 -0 0.352734 -89 1)" width="118.873" x="252.315" y="-2.835"/>
+</clipPath>
+<clipPath id="TextBounds_5">
+<rect height="230.457" transform="matrix(0.352734 -0 -0 0.352734 -106.618 -118.435)" width="107.73" x="302.263" y="335.763"/>
+</clipPath>
+</defs>
+<clipPath id="ArtboardFrame">
+<rect height="853.335" width="1304.1" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Untitled" vectornator:layerName="Untitled">
+<path d="M646.38 844.83L8.505 541.485C82.215 385.56 209.79 263.655 365.715 195.615C722.925 39.69 1139.67 204.12 1295.6 561.33L646.38 844.83Z" fill="#ffebd6" fill-rule="evenodd" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="13.5421"/>
+<path d="M649.215 839.16L487.62 762.615C507.465 725.76 538.65 694.575 578.34 677.565C666.225 637.875 771.12 680.4 810.81 768.285L649.215 839.16Z" fill="#ff8041" fill-rule="evenodd" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="5.41686"/>
+<text clip-path="url(#TextBounds)" fill="#000000" font-family="Helvetica" font-size="55" opacity="1" stroke="none" text-anchor="start" transform="matrix(2.835 0 0 2.835 595.16 654.801)" vectornator:width="36.6499" x="0" y="0">
+<tspan textLength="33.6499" x="0" y="53">θ</tspan>
+</text>
+<text clip-path="url(#TextBounds_2)" fill="#000000" font-family="Arial" font-size="70" opacity="1" stroke="none" text-anchor="start" transform="matrix(2.835 0 0 2.835 1060.29 654.885)" vectornator:width="26.3105" x="0" y="0">
+<tspan textLength="23.3105" x="0" y="63">r</tspan>
+</text>
+<text clip-path="url(#TextBounds_3)" fill="#fc9324" font-family="Arial" font-size="70" opacity="1" stroke="none" text-anchor="start" transform="matrix(2.835 0 0 2.835 575.505 229.635)" vectornator:width="49.6895" x="0" y="0">
+<tspan textLength="46.6895" x="0" y="63">A</tspan>
+</text>
+<text clip-path="url(#TextBounds_4)" fill="#009933" font-family="Arial" font-size="70" opacity="1" stroke="none" text-anchor="start" transform="matrix(2.835 0 0 2.835 252.315 -2.835)" vectornator:width="41.9307" x="0" y="0">
+<tspan textLength="38.9307" x="0" y="63">L</tspan>
+</text>
+<text clip-path="url(#TextBounds_5)" fill="#000066" font-family="Arial" font-size="70" opacity="1" stroke="none" text-anchor="start" transform="matrix(2.835 0 0 2.835 302.263 335.763)" vectornator:width="38" x="0" y="0">
+<tspan textLength="35" x="0" y="63">c</tspan>
+</text>
+</g>
+<g id="_301360024" vectornator:layerName="_301360024">
+<path d="M8.505 541.485L1295.6 561.33" fill="none" opacity="1" stroke="#000066" stroke-dasharray="40.0" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="5.41686"/>
+</g>
+<g clip-path="url(#ArtboardFrame)" id="Untitled_2" vectornator:layerName="Untitled">
+<path d="M11.34 541.485C82.215 385.56 209.79 263.655 365.715 195.615C725.76 39.69 1142.5 204.12 1298.43 561.33" fill="none" opacity="1" stroke="#009933" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="13.5421"/>
+</g>
+</svg>

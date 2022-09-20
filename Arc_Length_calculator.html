@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Arc Length Calculator</title>
+</head>
+
+<body>
+    
+    <!-- home body -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-20 mx-auto ">
+            <div class="flex flex-wrap -m-4  justify-center text-xl">
+
+                <div class="p-3 md:w-2/5">
+                    <h2 align="center">Arc Length Calculator</h2>
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-10 mx-auto ">
+                                
+                                
+                                <img alt="Parabola" class="flex-shrink-0 rounded-lg m-4 w-25 h-20 object-cover object-center sm:mb-0 " src="./images/sw-sector-calc-r2.svg">
+                                <input type="number" onchange="calculator()"  id="deg" placeholder="Central angle (θ)   deg" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="number" onchange="calculator()" id="r" placeholder="Radius (r)   m " class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="d" placeholder="Diameter     m" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="a" placeholder="Sector area (A)   m²" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="c" placeholder="Chord length (c)   m" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <label  class="leading-7 text-sm text-gray-600">Arc length</label>
+                                <input type="text"  id="l" placeholder="Arc length (L)   m" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                
+                                <button onclick="calculator()" type="button" class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button><br>
+                          
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function calculator() {
+            // Method returns the element id
+            var de = document.getElementById("deg").value;
+            var r = document.getElementById("r").value;
+            var deg = (de*Math.PI)/180;
+
+            //if(a==0){alert("Parameter 'a' can never equal zero for a parabola!");}
+                var d= 2*r;
+                var a= (r*r*deg)/2;//A = r² * θ / 2
+                var c= 2*r*Math.sin(deg/2);//2 × √(r2 − d2) or   Chord Length = 2 × r × sin(c/2)
+                var l= r*deg;//L = r * θ
+
+                
+                document.getElementById("d").value ="Diameter = "+d+" m";
+                document.getElementById("a").value ="Sector area (A) = "+a+" m²";
+                document.getElementById("c").value ="Chord length (c) = "+c+" m";
+                document.getElementById("l").value ="Arc length (L) = "+l+" m";
+        }
+    </script>
+</body>
+
+</html>
