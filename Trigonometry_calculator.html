@@ -37,6 +37,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="p-3 md:w-2/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+                             <label  class="leading-7 text-sm text-gray-600">...or trigonometry in right triangle</label>
+                             <input placeholder="Given      two sides (a,b)"  type="text" readonly class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="a    cm"  type="number" id="a" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="b    cm"  type="number" id="b" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            
+                             <img alt="Trigonometric" align="right" class="flex-shrink-0 m-6 rounded-lg w-100 h-40 object-cover object-center sm:mb-0 " src="./images/special-triangle-example.webp">
+                             <button onClick="Calculator1()" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button>
+                             <input placeholder="c    cm" readonly type="text" id="c" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Angle α      deg" readonly type="text" id="al" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Angle β       deg" readonly type="text" id="be" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                              
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
@@ -59,6 +77,22 @@
             document.getElementById("cot").value =" cot("+de+"°) = "+(1/Math.tan(deg));
             document.getElementById("sec").value =" sec("+de+"°) = "+(1/Math.cos(deg));
             document.getElementById("csc").value =" csc("+de+"°) = "+(1/Math.sin(deg));
+             }
+             
+            function Calculator1() {
+            
+            //input
+            var a =document.getElementById("a").value;
+            var b =document.getElementById("b").value;
+            //output
+            var c = Math.sqrt(a*a+b*b)
+            document.getElementById("c").value =" c = "+c+" cm";
+            //a = b * tan(α)
+            //b = a * tan(β)
+            var al = (Math.asin(a/c))*180/Math.PI;
+            var be = (90-parseFloat(al))
+            document.getElementById("al").value =" Angle α  = "+al+" deg";
+            document.getElementById("be").value =" Angle β  = "+be+" deg";
              }
             
             
