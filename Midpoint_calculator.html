@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Midpoint Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">Midpoint Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-2/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+                             <label for="Purchase" class="leading-7 text-sm text-gray-600">First point coordinates </label>
+                             <input placeholder="x₁"  type="text" id="x1" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="y₁"  type="text" id="y1" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             
+                            <label for="Selling" class="leading-7 text-sm text-gray-600">Second point coordinates </label>
+                            <input placeholder="x₂"  type="text" id="x2" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="y₂"  type="text" id="y2" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            
+                            <img alt="midpoint" align="right" class="flex-shrink-0 m-6 rounded-lg w-100 h-40 object-cover object-center sm:mb-0 " src="./images//midpoint.webp">
+
+                            <button onClick="Calculator()" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button><br /><br /><br />
+                            <label for="Stock" class="leading-7 text-sm text-gray-600">Midpoints</label>
+                    
+                            <input placeholder="x midpoint" readonly type="text" id="mx" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="y midpoint" readonly type="text" id="my" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                                 
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function Calculator() {
+            
+            //input
+            var x1 =document.getElementById("x1").value;
+            var x2 =document.getElementById("x2").value; 
+            var y1 =document.getElementById("y1").value;
+            var y2 =document.getElementById("y2").value; 
+            //output
+            document.getElementById("mx").value =" x midpoint = "+(parseFloat(x1)+parseFloat(x2))/2;
+            document.getElementById("my").value =" y midpoint = "+(parseFloat(y1)+parseFloat(y2))/2;
+             }
+            
+            
+    </script>
+</body>
+
+</html>
+
