@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Trigonometry Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">Trigonometry Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-2/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+                             <label  class="leading-7 text-sm text-gray-600">Trigonometric functions: sin, cos, tan...</label>
+                             <input placeholder="Angle θ                            deg "  type="text" id="deg" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <img alt="Trigonometric" align="right" class="flex-shrink-0 m-6 rounded-lg w-100 h-40 object-cover object-center sm:mb-0 " src="./images/trig-reciprocal.webp">
+                             <button onClick="Calculator()" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button>
+                             <input placeholder="sin(θ)" readonly type="text" id="sin" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="cos(θ)" readonly type="text" id="cos" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="tan(θ)" readonly type="text" id="tan" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="cot(θ)" readonly type="text" id="cot" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="sec(θ)" readonly type="text" id="sec" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="csc(θ)" readonly type="text" id="csc" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                               
+                            
+                              
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function Calculator() {
+            
+            //input
+            var de =document.getElementById("deg").value;
+            var deg = (de*Math.PI)/180;
+            //output
+            document.getElementById("sin").value =" sin("+de+"°) = "+Math.sin(deg);
+            document.getElementById("cos").value =" cos("+de+"°) = "+Math.cos(deg);
+            document.getElementById("tan").value =" tan("+de+"°) = "+Math.tan(deg);
+            document.getElementById("cot").value =" cot("+de+"°) = "+(1/Math.tan(deg));
+            document.getElementById("sec").value =" sec("+de+"°) = "+(1/Math.cos(deg));
+            document.getElementById("csc").value =" csc("+de+"°) = "+(1/Math.sin(deg));
+             }
+            
+            
+    </script>
+</body>
+
+</html>
+
