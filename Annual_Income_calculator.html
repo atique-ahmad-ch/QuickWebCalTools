@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Annual Income Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">Annual Income Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-3/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+
+                            <input placeholder="Working hours per week" onchange="Calculator()"  type="text" id="hpw" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Working weeks per year" onchange="Calculator()"  type="text" id="wpy" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Hourly wage   ₨"   type="text" id="hw" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Annual income   ₨" readonly  type="text" id="ai" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            
+                            <label  class="leading-7 text-sm text-gray-600">Net salary</label>
+                            <input placeholder="Tax      %"  onchange="Calculator()"  type="text" id="tax" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Net hourly wage      ₨"  readonly type="text" id="nhw" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Net annual income    ₨" readonly type="text" id="nai" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            
+                            <button onClick="Calculator()" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculator</button><br />
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function Calculator() {
+            
+            var hpw = document.getElementById("hpw").value;
+            var wpy = document.getElementById("wpy").value;
+            var hw = document.getElementById("hw").value;
+            var tax = document.getElementById("tax").value;
+            //output
+            var ai = hpw*wpy*hw;
+            var nhw = hw-tax/100*hw;
+            var nai = ai-tax/100*ai;
+            document.getElementById("ai").value =  ai +" Rs Annual income";
+            document.getElementById("nhw").value = nhw.toFixed(1) +" Rs Net hourly wage";
+            document.getElementById("nai").value = nai +" Rs Net annual income";
+
+             }
+    </script>
+</body>
+
+</html>
+
