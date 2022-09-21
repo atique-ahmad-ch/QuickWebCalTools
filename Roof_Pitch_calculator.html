@@ -1,0 +1,64 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Roof Pitch Calculator</title>
+</head>
+
+<body>
+    
+    <!-- home body -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-20 mx-auto ">
+            <div class="flex flex-wrap -m-4  justify-center text-xl">
+
+                <div class="p-3 md:w-2/5">
+                    <h2 align="center">Roof Pitch Calculator</h2>
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-10 mx-auto ">
+                               
+                            <input type="number" onchange="calculator()"  id="r" placeholder="Rise    m" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="number" onchange="calculator()" id="rl" placeholder="Run length     m" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="raf"  placeholder="Rafter length   m" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="rpd" placeholder="Roof pitch     deg" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="rpp" placeholder="Roof pitch (%)      %" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="rpx" placeholder="Roof pitch (x:12)    :12" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" /> 
+                                <button onclick="calculator()" type="button" class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button><br>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function calculator() {
+            // Method returns the element id
+            var r = document.getElementById("r").value;
+            var rl = document.getElementById("rl").value;
+            //rafter² = rise² + run²
+            var raf = Math.sqrt(r*r+rl*rl);
+            //rise / run = pitch
+            //pitch = tan (angle)
+            var rpp = r/rl*100;
+            var deg = (Math.atan(0.25)*180)/Math.PI;
+            var rpx = 12*(r/rl);
+
+            document.getElementById("raf").value ="Rafter length: "+raf+"    m";
+            document.getElementById("rpd").value ="Roof pitch: "+deg+"    deg";
+            document.getElementById("rpp").value ="Roof pitch (%): "+rpp+"       %";
+            document.getElementById("rpx").value ="Roof pitch (x:12): "+rpx+"           :12";
+        }
+    </script>
+</body>
+
+</html>
