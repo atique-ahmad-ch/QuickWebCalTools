@@ -1,0 +1,76 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Gravel Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">Gravel Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-3/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-20 mx-auto " >
+
+                             <label  class="leading-7 text-sm text-gray-600">How much gravel do you need?</label>
+                             <input placeholder="Length     m" onchange="Calculator()" type="text" id="l" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Width      m" onchange="Calculator()" type="text" id="w" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Depth      m" onchange="Calculator()"  type="text" id="d" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Area     m²" readonly  type="text" id="a" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Volume needed    m³" readonly  type="text" id="v" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="Weight needed     t" readonly  type="text" id="t" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             
+                            <label  class="leading-7 text-sm text-gray-600">How much will the gravel cost you?</label>
+                            <input placeholder="Price per one unit of mass      $/t" onchange="Calculator()" type="text" id="ppum" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Price per one unit of volume       $/m³" readonly type="text" id="ppuv" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Total cost         $" readonly type="text" id="tc" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            
+                            <button onClick="Calculator()" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculator</button><br />
+                            
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function Calculator() {
+            
+            
+            var l = document.getElementById("l").value;
+            var w = document.getElementById("w").value;
+            var d = document.getElementById("d").value;
+            var ppum = document.getElementById("ppum").value;
+            
+            //output perform here
+            var v = (l*w*d);
+            var t = (1.68*v);
+            var ppuv = (1.68*ppum);
+            document.getElementById("a").value = "Area: "+(l*w)+"    m²";
+            document.getElementById("v").value = "Volume needed: "+v+"    m³";
+            document.getElementById("t").value = "Weight needed: "+t+"    t";
+            document.getElementById("ppuv").value = "Price per one unit of volume: "+ppuv+"   $/m³";
+            document.getElementById("tc").value = "Total cost: "+ppum*t+"    $";
+             }
+            
+    </script>
+</body>
+
+</html>
+
