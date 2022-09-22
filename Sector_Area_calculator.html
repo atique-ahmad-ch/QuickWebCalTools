@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Sector Area Calculator</title>
+</head>
+
+<body>
+    
+    <!-- home body -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-20 mx-auto ">
+            <div class="flex flex-wrap -m-4  justify-center text-xl">
+
+                <div class="p-3 md:w-2/5">
+                    <h2 align="center">Sector Area Calculator</h2>
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <div class="container px-5 py-10 mx-auto ">
+                                
+                            <img alt="Parabola" class="flex-shrink-0 mb-4 rounded-lg w-50 h-20 object-cover object-center sm:mb-0 " src="./images/sector-calc-formula.webp">
+                                <input type="number" onchange="calculator()"  id="deg" placeholder="Central angle    deg" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="number" onchange="calculator()" id="r" placeholder="Radius           cm" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"   id="d" placeholder="Diameter         cm" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="a" placeholder="Sector area (A)      cm²" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="text"  id="l" placeholder="Arc length (L)       cm" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />                    
+                                <input type="text"  id="c" placeholder="Chord length (c)     cm" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                
+                                <button onclick="calculator()" type="button" class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculate</button><br>
+                          
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function calculator() {
+            // Method returns the element id
+            var deg = document.getElementById("deg").value;
+            var angle = deg*Math.PI/180;
+            var r = document.getElementById("r").value;
+            var d = 2*r;
+                document.getElementById("d").value ="Diameter (d):    "+d+"   cm";
+                //Sector Area = r² × α / 2
+                document.getElementById("a").value ="Sector area (A):  "+((r*r) * angle/ 2).toFixed(3)+"  cm²";
+                document.getElementById("l").value ="Arc length (L):  "+(r*angle).toFixed(3)+"   cm";
+                //var c= 2*r*Math.sin(deg/2);
+                var c= 2*r*Math.sin(angle/2);
+                document.getElementById("c").value ="Chord length (c):  "+(c)+"   cm";
+        }
+    </script>
+</body>
+
+</html>

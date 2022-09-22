@@ -55,14 +55,31 @@
 
         function calculator() {
             // Method returns the element id
-            var vi = document.getElementById("vi").value;
+            var V = document.getElementById("vi").value;
             var ang = document.getElementById("ang").value;
             var t = document.getElementById("t").value;
             var h =   document.getElementById("h").value;
             
-                document.getElementById("tf").value ="Time of flight (t): "+d+" sec";
-                document.getElementById("d").value ="Distance (d): "+d+" m";
-                document.getElementById("hmax").value ="Maximum height (hmax): "+d+" m";
+            //Vx = V * cos(α)
+            //Vy = V * sin(α)
+            //var ang = an*Math.PI/180;
+            var Vx = V * Math.cos(ang)*Math.PI/180;
+            var Vy = V * Math.sin(ang)*Math.PI/180; var g = 9.81 ;
+            //t = 2 * Vy / g    hmax = Vy² / (2 * g)      for h=0 
+            if(h==0){      
+             var T = 2 * parseFloat(Vy)/g;
+             var hmax = parseFloat(Vy)*parseFloat(Vy) / (2 * g);
+             var R = 2 * Vx * parseFloat(Vy) / g;
+            }else if(h>0){
+                var T = [parseFloat(Vy) + Math.sqrt(parseFloat(Vy)*parseFloat(Vy) + 2 * g * h)] / g;
+                var hmax = h + V*V * (sin(ang)**2)/(2 * g)
+                var R = Vx * [parseFloat(Vy) + Math.sqrt(parseFloat(Vy)*parseFloat(Vy) + 2 * g * h)] / g;
+            }
+            //t = [Vy + √(Vy² + 2 * g * h)] / g     hmax = h + V² * sin(α)² / (2 * g)              for h > 0
+
+                document.getElementById("tf").value ="Time of flight (t): "+T+" sec";
+                document.getElementById("d").value ="Distance (d): "+R+" m";
+                document.getElementById("hmax").value ="Maximum height (hmax): "+hmax+" m";
                 document.getElementById("v").value ="Velocity: "+d+" m/s";
         }
     </script>
