@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,25 +19,41 @@
             <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
                 <div class="p-3 md:w-3/5">
                     <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                        <div class="container px-5 py-20 mx-auto " >
+                        <form>
+                            <div class="container px-5 py-20 mx-auto " >
+                             <select  name="sex" id="sex" onchange="if(this.value=='male'){
+                                    document.getElementById('mcal_male').style.display = 'block';
+                                    document.getElementById('mcal').style.display = 'none';
+                             }else if(this.value=='female'){
 
-                             <label  class="leading-7 text-sm text-gray-600">Sex -Female </label>
+                                document.getElementById('mcal_male').style.display = 'none';
+                                document.getElementById('mcal').style.display = 'block';
+                             }"
+                              class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out">
+                                <option value="male" >Male</option>
+                                <option value="female" >Female</option>
+                            </select>
                              <input placeholder="Height (cm)" onchange="Calculator()" type="text" id="h" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
                              <input placeholder="Weight (kg)" onchange="Calculator()" type="text" id="w" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
                              <input placeholder="Age (year)" onchange="Calculator()"  type="text" id="a" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
                              
-                            <label  class="leading-7 text-sm text-gray-600">Activity level -Light exercise 1-2 times/week</label>
+                            <label  class="leading-7 text-sm text-gray-600">Activity level -Little/no Exercise(sedentary lifestyle)</label>
                             <input placeholder="Target Weight (kg)" onchange="Calculator()" type="text" id="tw" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
                             
-                            <label  class="leading-7 text-sm text-gray-600">Weight loss pace - Relaxed: 0.25 kg (0.5 lb) / week</label>
+                            <select   class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out">
+                                <option >Weight loss pace - Relaxed: 0.25 kg (0.5 lb) / week</option>
+                                <option >Weight loss pace - Normal: 0.5 kg (1.1 lb) / week</option>
+                                <option >Weight loss pace - Relaxed: Strict 1 kg (2.2 lb) / week</option>
+                            </select>                            
                             <input placeholder="Calorie deficit (kcal/day)" onchange="Calculator()" type="text" id="cal" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
                             <label  class="leading-7 text-sm text-gray-600">Results</label>
-                            <input placeholder="Calories to maintain weight  (kcal/day) "  readonly type="text" id="mcal" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Calories to maintain weight  (kcal/day) " style="display: none;" readonly type="text" id="mcal" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Calories to maintain weight  (kcal/day) "  readonly type="text" id="mcal_male" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
                              
                             <button onClick="window.location.reload();" type="button"
                                 class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Re-set</button><br />
                             
-                        </div>
+                        </div></form>
                     </div>
                 </div>
 
@@ -50,20 +65,17 @@
 
 
     <script type="text/javascript">
-
-        function Calculator() {
-            
+         function Calculator() {
             var h = document.getElementById("h").value;
             var w = document.getElementById("w").value;
             var a = document.getElementById("a").value;
             var tw = document.getElementById("tw").value;
             var cal = document.getElementById("cal").value;
-            //output perform here
-            document.getElementById("mcal").value = +" (kcal/day)";
+  
+           document.getElementById("mcal").value="Calories to maintain weight: "+(1.2*((10 * w )+ (6.25 * h) - (5 * a)-161)).toFixed(0)+"  (kcal/day)";  
+           document.getElementById("mcal_male").value="Calories to maintain weight: "+(1.2*((10 * w)+ (6.25 * h )- (5 * a)+5)).toFixed(0)+"  (kcal/day)";
              }
-            
     </script>
 </body>
 
 </html>
-
