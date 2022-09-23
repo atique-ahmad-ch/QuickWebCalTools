@@ -26,9 +26,9 @@
                                 
                                 <img alt="Parabola" class="flex-shrink-0 rounded-lg w-100 h-21 object-cover object-center sm:mb-0 " src="./images/projectile-motion.webp">
                                 <label  class="leading-7 text-sm text-gray-600">Initial parameters</label>
-                                <input type="number" onchange="calculator()"  id="vi" placeholder="Initial velocity (V)     m/s" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                <input type="number" onchange="calculator()" id="ang" placeholder="Angle of launch (α)      deg" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                <input type="text" onchange="calculator()"  id="h" placeholder="Initial height (h)        m"  class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="number"   id="vi" placeholder="Initial velocity (V)     m/s" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="number"  id="ang" placeholder="Angle of launch (α)      deg" class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input type="number" onchange="calculator()"  id="h" placeholder="Initial height (h)        m"  class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 <input type="text"  id="tf" placeholder="Time of flight (t)        sec" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 <input type="text"  id="d" placeholder="Distance (d)               m" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />                    
                                 <input type="text"  id="hmax" placeholder="Maximum height (hmax)       m" readonly class="w-full my-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
@@ -63,24 +63,36 @@
             //Vx = V * cos(α)
             //Vy = V * sin(α)
             //var ang = an*Math.PI/180;
-            var Vx = V * Math.cos(ang)*Math.PI/180;
-            var Vy = V * Math.sin(ang)*Math.PI/180; var g = 9.81 ;
-            //t = 2 * Vy / g    hmax = Vy² / (2 * g)      for h=0 
-            if(h==0){      
-             var T = 2 * parseFloat(Vy)/g;
-             var hmax = parseFloat(Vy)*parseFloat(Vy) / (2 * g);
-             var R = 2 * Vx * parseFloat(Vy) / g;
-            }else if(h>0){
-                var T = [parseFloat(Vy) + Math.sqrt(parseFloat(Vy)*parseFloat(Vy) + 2 * g * h)] / g;
-                var hmax = h + V*V * (sin(ang)**2)/(2 * g)
-                var R = Vx * [parseFloat(Vy) + Math.sqrt(parseFloat(Vy)*parseFloat(Vy) + 2 * g * h)] / g;
-            }
-            //t = [Vy + √(Vy² + 2 * g * h)] / g     hmax = h + V² * sin(α)² / (2 * g)              for h > 0
+            var Vx = V * Math.cos(ang* Math.PI / 180);
+            var Vy = V * Math.sin(ang* Math.PI / 180); 
+            var g = 9.81 ;
+           var vfy = Vy-g*t;
+           var vf = Math.sqrt(Vx**2 + vfy**2);
+            if(h==0){     
+             var T = (2 * Vy)/g; 
+             var hmax = (Vy*Vy) / (2 * g);
+             var R = (2 * Vx * Vy) / g;
+                document.getElementById("tf").value ="Time of flight (t): "+T.toFixed(3)+" sec";
+                document.getElementById("d").value ="Distance (d): "+R.toFixed(3)+" m";
+                document.getElementById("hmax").value ="Maximum height (hmax): "+hmax.toFixed(3)+" m";
 
-                document.getElementById("tf").value ="Time of flight (t): "+T+" sec";
-                document.getElementById("d").value ="Distance (d): "+R+" m";
-                document.getElementById("hmax").value ="Maximum height (hmax): "+hmax+" m";
-                document.getElementById("v").value ="Velocity: "+d+" m/s";
+            }else if(h>0){
+                
+                var Tg = (Vy + Math.sqrt((Vy*Vy) + (2*g*h)) )/g;
+                var hmaxg = parseFloat(parseFloat(h)+parseFloat([parseFloat(Vy)**2/(2*g)]));
+                var Rg = Vx * [Vy + Math.sqrt((Vy*Vy) + 2 * g * h)] / g;
+                
+                document.getElementById("tf").value ="Time of flight (t): "+Tg.toFixed(3)+" sec";
+                document.getElementById("d").value ="Distance (d): "+Rg.toFixed(3)+" m";
+                document.getElementById("hmax").value ="Maximum height (hmax): "+hmaxg.toFixed(3)+" m";
+            }
+            else{
+                alert("height must be +ve");
+            }
+            
+            document.getElementById("v").value ="Velocity: "+vf+" m/s";
+
+                
         }
     </script>
 </body>
