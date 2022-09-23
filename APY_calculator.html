@@ -1,0 +1,138 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>APY Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3">APY Calculator</h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-3/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <form>
+                            <div class="container px-5 py-20 mx-auto " >
+
+                            <input placeholder="Interest    %" onchange="Calculator()" type="text" id="i" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+
+
+                             <select   id="cf" onchange="if(this.value=='Yearly'){
+                                    document.getElementById('apy_y').style.display = 'block';
+                                    document.getElementById('apy_m').style.display = 'none';
+                                    document.getElementById('apy_w').style.display = 'none';
+                                    document.getElementById('apy_d').style.display = 'none';
+
+                                    document.getElementById('fb_y').style.display = 'block';
+                                    document.getElementById('fb_m').style.display = 'none';
+                                    document.getElementById('fb_w').style.display = 'none';
+                                    document.getElementById('fb_d').style.display = 'none';
+                             }else if(this.value=='monthly'){
+                                document.getElementById('apy_y').style.display = 'none';
+                                document.getElementById('apy_m').style.display = 'block';
+                                document.getElementById('apy_w').style.display = 'none';
+                                document.getElementById('apy_d').style.display = 'none';
+
+                                document.getElementById('fb_y').style.display = 'none';
+                                document.getElementById('fb_m').style.display = 'block';
+                                document.getElementById('fb_w').style.display = 'none';
+                                document.getElementById('fb_d').style.display = 'none';
+                             }else if(this.value=='weekly'){
+                                document.getElementById('apy_y').style.display = 'none';
+                                document.getElementById('apy_m').style.display = 'none';
+                                document.getElementById('apy_w').style.display = 'block';
+                                document.getElementById('apy_d').style.display = 'none';
+                                
+                                document.getElementById('fb_y').style.display = 'none';
+                                document.getElementById('fb_m').style.display = 'none';
+                                document.getElementById('fb_w').style.display = 'block';
+                                document.getElementById('fb_d').style.display = 'none';
+                             }else if(this.value=='Daily'){
+                                document.getElementById('apy_y').style.display = 'none';
+                                document.getElementById('apy_m').style.display = 'none';
+                                document.getElementById('apy_w').style.display = 'none';
+                                document.getElementById('apy_d').style.display = 'block';
+                                
+                                document.getElementById('fb_y').style.display = 'none';
+                                document.getElementById('fb_m').style.display = 'none';
+                                document.getElementById('fb_w').style.display = 'none';
+                                document.getElementById('fb_d').style.display = 'block';
+                             }"
+                              class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out">   
+                                <option value="Yearly" >Compound frequency- Yearly</option>
+                                <option value="monthly" >Compound frequency- monthly</option>
+                                <option value="weekly" >Compound frequency- weekly</option>
+                                <option value="Daily" >Compound frequency- Daily</option>
+                            </select>
+
+
+
+                             <input placeholder="APY          %"  type="text" readonly id="apy_y" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="APY          %"  type="text" style="display: none;" readonly id="apy_m" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="APY          %"  type="text" style="display: none;" readonly id="apy_w" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                             <input placeholder="APY          %"  type="text" style="display: none;" readonly id="apy_d" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            
+                                                       
+                            <input placeholder="Term            years " onchange="Calculator()" type="text" id="term" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Initial balance     $" onchange="Calculator()" type="text" id="ib" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <!-- <label  class="leading-7 text-sm text-gray-600">Results</label> -->
+                            <input placeholder="Final balance      $ "  readonly type="text" id="fb_y" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Final balance      $ " style="display: none;" readonly type="text" id="fb_m" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Final balance      $ " style="display: none;" readonly type="text" id="fb_w" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                            <input placeholder="Final balance      $ " style="display: none;" readonly type="text" id="fb_d" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                           
+                            <button onClick="Calculator()" type="button"
+                                class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Calculator</button><br />
+                            
+                        </div></form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript">
+         function Calculator() {
+            var i = document.getElementById("i").value;
+            var ib = document.getElementById("ib").value;
+            var term = document.getElementById("term").value;
+            var r = i/100;
+            //APY = (1 + r/n)ⁿ – 1
+            var apy_y = (((1 + r/1)**1 -1)*100).toFixed(2);
+            var apy_m = (((1 + r/12)**12 -1)*100).toFixed(2);
+            var apy_w = (((1 + r/52)**52 -1)*100).toFixed(2);
+            var apy_d = (((1 + r/365)**365 -1)*100).toFixed(2);
+           document.getElementById("apy_y").value="APY: "+apy_y+"  (%)";  
+           document.getElementById("apy_m").value="APY: "+apy_m+"  (%)";  
+           document.getElementById("apy_w").value="APY: "+apy_w+"  (%)";  
+           document.getElementById("apy_d").value="APY: "+apy_d+"  (%)";
+
+           //X = D(1 + r/n)n*y
+           //(parseFloat(ib)+parseFloat((apy_y/100)*ib)*(term/12))
+           //(parseFloat(ib)+parseFloat((apy_m/100)*ib)*(term/12))
+           var X = ib*(1 + (apy_y/(100*term)))**(term*term);
+           var X1 = ib*(1 + (apy_m/(100*term)))**(term*term);
+           var X2 = ib*(1 + (apy_w/(100*term)))**(term*term);
+           var X3 = ib*(1 + (apy_d/(100*term)))**(term*term);
+           document.getElementById("fb_y").value="Final balance: "+X+"  ($)";  
+           document.getElementById("fb_m").value="Final balance: "+X1+"  ($)";  
+           document.getElementById("fb_w").value="Final balance: "+X2+"  ($)";  
+           document.getElementById("fb_d").value="Final balance: "+X3+"  ($)";  
+         }
+    </script>
+</body>
+
+</html>
