@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta cha$et="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Calorie Maintenance Calculator</title>
+</head>
+
+<body>
+    <!-- home body -->
+    <section class="text-gray-600 body-font bg-purple">
+        <div class="container px-5 pt-3 mx-auto ">
+            <h2 align="center" class="m-3"><b>Calorie Maintenance Calculator</b></h2>
+            <div class="flex flex-wrap -m-4  justify-center item-center text-xl">
+                <div class="p-3 md:w-3/5">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <form>
+                            <div class="container px-5 py-20 mx-auto ">
+                                <p>🥗 This calculator will help you to estimate<b> how much energy and nutrients your
+                                        body needs</b> to maintain your current weight.</p>
+                                <select name="sex" id="sex" onchange="if(this.value=='male'){
+                                    document.getElementById('mcal_male').style.display = 'block';
+                                    document.getElementById('mcal_female').style.display = 'none';
+                             }else if(this.value=='female'){
+
+                                document.getElementById('mcal_male').style.display = 'none';
+                                document.getElementById('mcal_female').style.display = 'block';
+                             }" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <input placeholder="Height (cm)" onchange="Calculator()" type="text" id="h"
+                                    class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                                <input placeholder="Weight (kg)" onchange="Calculator()" type="text" id="w"
+                                    class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                                <input placeholder="Age (year)" onchange="Calculator()" type="text" id="a"
+                                    class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+
+                                <select name="Activity level" id="AL" onchange="Calculator()"
+                                    class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out">
+                                    <option value="1.2" >Physical activity: little/no exercise
+                                    </option>
+                                    <option value="1.4">Physical activity: Light
+                                        exercise 1-2times/week</option>
+                                    <option value="1.6" >Physical activity: Moderate
+                                        exercise 2-3 times/week</option>
+                                    <option value="1.75" >Physical activity: Hard exercise
+                                        3-5 times/week</option>
+                                    <option value="2.0" >Physical
+                                        activity: Physical job or hardexercise 6-7 times/week</option>
+                                    <option value="2.4" >Physical activity: Professional athlete
+                                    </option>
+                                </select>
+                               
+                               
+                                <input placeholder="Physical Activity Level (PAL) = 1.2" readonly
+                                    type="text" id="pal" class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 eas
+                                    +e-in-out" />
+
+                                <select
+                                    class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out">
+                                    <option>Have you lost weight recently?</option>
+                                    <option>No </option>
+                                    <option>Yes</option>
+                                </select>
+                                
+                                <input placeholder="FEMALE Calories to maintain weight  (kcal/day) " style="display: none;"
+                                    readonly type="text" id="mcal_female"
+                                    class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+                                <input placeholder="MALE Calories to maintain weight  (kcal/day) " readonly type="text"
+                                    id="mcal_male"
+                                    class="w-full my-1 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colo$ duration-200 ease-in-out" />
+
+                                <button onClick="window.location.reload();" type="button"
+                                    class="text-white bg-indigo-500 border-0 py-2 px-6 my-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Re-set</button><br />
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        function Calculator() {
+            var h = document.getElementById("h").value;
+            var w = document.getElementById("w").value;
+            var a = document.getElementById("a").value;
+
+            var e = document.getElementById("AL");
+            var selectedItem = e.options[e.selectedIndex].value;
+            
+
+            document.getElementById("pal").value = " Physical Activity Level (PAL): " + selectedItem;
+            document.getElementById("mcal_female").value = " Calories to maintain weight: " + (selectedItem * ((10 * w) + (6.25 * h) - (5 * a) - 161)).toFixed(2) + "  (kcal/day)";
+            document.getElementById("mcal_male").value = " Calories to maintain weight: " + (selectedItem * ((10 * w) + (6.25 * h) - (5 * a) + 5)).toFixed(2) + "  (kcal/day)";
+        }
+    </script>
+</body>
+
+</html>+
