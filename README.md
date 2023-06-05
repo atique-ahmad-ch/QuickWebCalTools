@@ -34,4 +34,9 @@ Each calculator is implemented as a separate HTML file and includes JavaScript f
 
 Feel free to explore and use these calculators in your projects. Contributions, bug fixes, and suggestions are always welcome!
 
+##Demo link
+```
+https://atique22.github.io/QuickWebCalTools/
+```
+
 
