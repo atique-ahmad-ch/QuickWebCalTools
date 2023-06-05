@@ -2,6 +2,11 @@
 
 This repository contains a collection of simple calculators built using JavaScript, HTML, and CSS. Each calculator focuses on a specific calculation or conversion and provides an interactive user interface.
 
+## Demo link
+```
+https://atique22.github.io/QuickWebCalTools/
+```
+
 ## Calculators Included
 
 1. **APY Calculator**: Calculate the Annual Percentage Yield (APY) for an investment.
@@ -34,9 +39,6 @@ Each calculator is implemented as a separate HTML file and includes JavaScript f
 
 Feel free to explore and use these calculators in your projects. Contributions, bug fixes, and suggestions are always welcome!
 
-## Demo link
-```
-https://atique22.github.io/QuickWebCalTools/
-```
+
 
 
