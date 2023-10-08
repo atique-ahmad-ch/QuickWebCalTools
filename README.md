@@ -8,6 +8,7 @@ https://atique22.github.io/QuickWebCalTools/
 ```
 
 ## Calculators Included
+<img width="1258" alt="image" src="https://github.com/Atique22/QuickWebCalTools/assets/65412984/1eb7a927-fcd7-4528-b1d4-a444bc06c9f4">
 
 1. **APY Calculator**: Calculate the Annual Percentage Yield (APY) for an investment.
 2. **Acceleration Calculator**: Calculate acceleration using initial velocity, final velocity, and time.
