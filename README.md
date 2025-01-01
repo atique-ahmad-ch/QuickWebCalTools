@@ -4,7 +4,7 @@ This repository contains a collection of simple calculators built using JavaScri
 
 ## Demo link
 ```
-https://atique22.github.io/QuickWebCalTools/
+https://atique-ahmad-ch.github.io/QuickWebCalTools/
 ```
 
 ## Calculators Included
@@ -41,7 +41,7 @@ Each calculator is implemented as a separate HTML file and includes JavaScript f
 Feel free to explore and use these calculators in your projects. Contributions, bug fixes, and suggestions are always welcome!
 
 
-Link: https://atique22.github.io/QuickWebCalTools/
+Link: https://atique-ahmad-ch.github.io/QuickWebCalTools/
 
 
 
