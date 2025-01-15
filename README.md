@@ -42,6 +42,7 @@ Feel free to explore and use these calculators in your projects. Contributions, 
 
 
 Link: https://atique-ahmad-ch.github.io/QuickWebCalTools/
+Freelancer Client Link: https://www.omnicalculator.com/math
 
 
 
